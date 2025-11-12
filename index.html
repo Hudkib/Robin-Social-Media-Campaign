@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robin Social Media Campaign - Beauty Salons</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            overflow-x: hidden;
+        }
+        
+        .presentation {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            page-break-after: always;
+        }
+        
+        .title-slide {
+            background: linear-gradient(135deg, #d4145a 0%, #fbb034 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .title-slide h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .title-slide .subtitle {
+            font-size: 1.8em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .title-slide .tagline {
+            font-size: 2.2em;
+            font-style: italic;
+            padding: 30px;
+            border-top: 3px solid white;
+            border-bottom: 3px solid white;
+            display: inline-block;
+            margin-top: 40px;
+        }
+        
+        .slide h2 {
+            font-size: 2.5em;
+            color: #d4145a;
+            margin-bottom: 40px;
+            border-bottom: 4px solid #fbb034;
+            padding-bottom: 15px;
+        }
+        
+        .instagram-post {
+            background: #fff;
+            border: 1px solid #dbdbdb;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .post-header {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #efefef;
+        }
+        
+        .post-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+            background: linear-gradient(135deg, #d4145a, #fbb034);
+        }
+        
+        .post-header .username {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .post-image {
+            width: 100%;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .post1-visual {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            position: relative;
+        }
+        
+        .yarn-display {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .yarn-spool {
+            width: 80px;
+            height: 120px;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .spool-top {
+            width: 100%;
+            height: 15px;
+            border-radius: 8px 8px 0 0;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+        
+        .spool-middle {
+            width: 100%;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .spool-thread {
+            width: 90%;
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .post1-text {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .post2-visual {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            position: relative;
+        }
+        
+        .salon-scene {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .beautician-silhouette {
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(135deg, #d4145a, #c2185b);
+            border-radius: 50% 50% 60% 40%;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        
+        .beauty-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .icon-circle {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .post2-text {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #d4145a;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .post3-visual {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            position: relative;
+            display: flex;
+        }
+        
+        .split-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .factory-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+        
+        .salon-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+        
+        .section-label {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #2e7d32;
+            text-align: center;
+        }
+        
+        .connecting-thread {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 60%;
+            background: linear-gradient(to bottom, #d4145a, #fbb034, #4caf50);
+            z-index: 10;
+        }
+        
+        .post3-text {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        
+        .post-caption {
+            padding: 20px;
+            font-size: 1em;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .post-caption strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #d4145a;
+        }
+        
+        .hashtags {
+            color: #0095f6;
+            margin-top: 10px;
+        }
+        
+        .strategy-slide {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+        }
+        
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .strategy-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .strategy-card h3 {
+            color: #d4145a;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .strategy-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .strategy-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .strategy-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #fbb034;
+            font-weight: bold;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #d4145a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .print-button:hover {
+            background: #b01048;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+        
+        @media print {
+            .print-button {
+                display: none;
+            }
+            .slide {
+                page-break-after: always;
+            }
+        }
+        
+        .kenya-flag {
+            display: flex;
+            height: 60px;
+            margin: 30px auto;
+            width: 300px;
+            border: 2px solid #333;
+        }
+        
+        .flag-stripe {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: Title -->
+        <div class="slide title-slide">
+            <h1>ROBIN SOCIAL MEDIA CAMPAIGN</h1>
+            <div class="subtitle">Target: Beauty Salons</div>
+            <div class="kenya-flag">
+                <div class="flag-stripe" style="background: #000;"></div>
+                <div class="flag-stripe" style="background: #d4145a;"></div>
+                <div class="flag-stripe" style="background: #006600;"></div>
+            </div>
+            <div class="tagline">"Woven in Kenya, Trusted by Professionals"</div>
+        </div>
+        
+        <!-- Slide 2: Post 1 -->
+        <div class="slide">
+            <h2>Instagram Post 1: Quality Heritage</h2>
+            <div class="instagram-post">
+                <div class="post-header">
+                    <img src="" alt="Profile">
+                    <div class="username">@robinkenya</div>
+                </div>
+                <div class="post-image post1-visual">
+                    <div class="yarn-display">
+                        <div class="yarn-spool">
+                            <div class="spool-top" style="background: #e91e63;"></div>
+                            <div class="spool-middle">
+                                <div class="spool-thread" style="background: #e91e63;"></div>
+                            </div>
+                        </div>
+                        <div class="yarn-spool">
+                            <div class="spool-top" style="background: #fbb034;"></div>
+                            <div class="spool-middle">
+                                <div class="spool-thread" style="background: #fbb034;"></div>
+                            </div>
+                        </div>
+                        <div class="yarn-spool">
+                            <div class="spool-top" style="background: #9c27b0;"></div>
+                            <div class="spool-middle">
+                                <div class="spool-thread" style="background: #9c27b0;"></div>
+                            </div>
+                        </div>
+                        <div class="yarn-spool">
+                            <div class="spool-top" style="background: #ff5722;"></div>
+                            <div class="spool-middle">
+                                <div class="spool-thread" style="background: #ff5722;"></div>
+                            </div>
+                        </div>
+                        <div class="yarn-spool">
+                            <div class="spool-top" style="background: #4caf50;"></div>
+                            <div class="spool-middle">
+                                <div class="spool-thread" style="background: #4caf50;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post1-text">40+ Years of Quality. Made in Kenya.</div>
+                </div>
+                <div class="post-caption">
+                    <strong>Caption:</strong>
+                    Every strand tells a story of excellence. 🧵✨ For over 40 years, Robin has been the trusted choice for beauty salons across Kenya. Our yarn is crafted with precision, ensuring your braids, weaves, and styles stay perfect longer. Quality you can feel. Heritage you can trust.
+                    <div class="hashtags">#RobinKenya #MadeInKenya #QualityYarn #BeautySalonSupplies</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: Post 2 -->
+        <div class="slide">
+            <h2>Instagram Post 2: Professional Partnership</h2>
+            <div class="instagram-post">
+                <div class="post-header">
+                    <img src="" alt="Profile">
+                    <div class="username">@robinkenya</div>
+                </div>
+                <div class="post-image post2-visual">
+                    <div class="salon-scene">
+                        <div class="beautician-silhouette">
+                            <div class="beauty-icons">
+                                <div class="icon-circle" style="top: 10%; left: -30px;">💇🏾‍♀️</div>
+                                <div class="icon-circle" style="top: 40%; right: -30px;">✨</div>
+                                <div class="icon-circle" style="bottom: 20%; left: -20px;">💛</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post2-text">The Professional's Choice Since 1984</div>
+                </div>
+                <div class="post-caption">
+                    <strong>Caption:</strong>
+                    Behind every beautiful hairstyle is a professional who demands the best. 💇🏾‍♀️💛 Robin yarn gives salon owners what they need most: consistency, vibrant lasting colors, and strength that holds every braid perfectly. Join hundreds of Kenyan salons who trust Robin for their business. Because your reputation deserves the best quality.
+                    <div class="hashtags">#RobinYarn #SalonProfessionals #KenyanBeauty #BraidingHair #MadeInKenya</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Post 3 -->
+        <div class="slide">
+            <h2>Instagram Post 3: Community Impact</h2>
+            <div class="instagram-post">
+                <div class="post-header">
+                    <img src="" alt="Profile">
+                    <div class="username">@robinkenya</div>
+                </div>
+                <div class="post-image post3-visual">
+                    <div class="split-section" style="background: rgba(76, 175, 80, 0.1);">
+                        <div class="factory-icon">🏭</div>
+                        <div class="section-label">750 Employees<br>Robin Factory</div>
+                    </div>
+                    <div class="connecting-thread"></div>
+                    <div class="split-section" style="background: rgba(233, 30, 99, 0.1);">
+                        <div class="salon-icon">💅🏾</div>
+                        <div class="section-label">1000+ Salons<br>Across Kenya</div>
+                    </div>
+                    <div class="post3-text">750 Families. 1000+ Salons.<br>One Kenyan Story.</div>
+                </div>
+                <div class="post-caption">
+                    <strong>Caption:</strong>
+                    When you choose Robin, you're choosing more than quality—you're supporting 750 Kenyan families and a legacy of local manufacturing. 🇰🇪❤️ Our yarn doesn't just create beautiful styles; it builds communities and keeps Kenyan businesses thriving together. That's the Robin difference: Quality that gives back.
+                    <div class="hashtags">#SupportLocal #MadeInKenya #RobinCommunity #KenyanPride #BeautyWithPurpose</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Campaign Strategy -->
+        <div class="slide strategy-slide">
+            <h2>Campaign Strategy</h2>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h3>🎯 Why Beauty Salons?</h3>
+                    <ul>
+                        <li>High-volume repeat customers</li>
+                        <li>Value quality and consistency</li>
+                        <li>Appreciate reliable local suppliers</li>
+                        <li>Professional reputation matters</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h3>🎨 Visual Strategy</h3>
+                    <ul>
+                        <li>Vibrant colors (pink, yellow, purple)</li>
+                        <li>Modern, clean aesthetic</li>
+                        <li>Authentic Kenyan representation</li>
+                        <li>Professional photography style</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h3>🇰🇪 Kenyan Culture Integration</h3>
+                    <ul>
+                        <li>Features local professionals</li>
+                        <li>"Made in Kenya" pride</li>
+                        <li>Community impact messaging</li>
+                        <li>Authentic, not stereotypical</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h3>✨ Quality Messaging</h3>
+                    <ul>
+                        <li>"40+ years" builds trust</li>
+                        <li>Professional credibility focus</li>
+                        <li>Practical benefits highlighted</li>
+                        <li>Heritage + modern positioning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 6: Key Differentiators -->
+        <div class="slide">
+            <h2>What Makes This Campaign Competitive</h2>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h3>🏆 Modern & Professional</h3>
+                    <ul>
+                        <li>Clean Instagram-native design</li>
+                        <li>Contemporary color palette</li>
+                        <li>Professional photography aesthetic</li>
+                        <li>Engaging visual storytelling</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h3>💪 Better Than Competitors</h3>
+                    <ul>
+                        <li>Local manufacturing advantage</li>
+                        <li>40-year heritage credibility</li>
+                        <li>Community impact story</li>
+                        <li>Professional partnership approach</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h3>🇰🇪 Kenyan Culture Showcase</h3>
+                    <ul>
+                        <li>Authentic representation</li>
+                        <li>Local pride and patriotism</li>
+                        <li>Community-focused messaging</li>
+                        <li>Support local business angle</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h3>🎯 Premium Positioning</h3>
+                    <ul>
+                        <li>Professional-grade quality focus</li>
+                        <li>Trust and reliability messaging</li>
+                        <li>Business success partnership</li>
+                        <li>Long-term value proposition</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="print-button" onclick="window.print()">📄 Print/Save as PDF</button>
+</body>
+</html>
